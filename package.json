@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jsdom": "^24.0.0",
+    "node-telegram-bot-api": "^0.64.0"
+  }
+}
