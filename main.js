@@ -34,16 +34,17 @@ async function main() {
                         let lastSection = l[l.length - 1];
                         let div = lastSection.querySelector("div > div").children;
                         let el = div[div.length - 1].children;
-                        let lastCircolare = el[0];
+                        let lastCircolare = el[1].children[1].children[1].children[0];
 
                         link = lastCircolare.getAttribute("href");
-                        desc = lastCircolare.children[0].children[0].querySelector("div.card-article-content > h2").innerHTML;
+                        desc = lastCircolare.querySelector("h2").innerHTML;
 
                         if (link === null | undefined || desc === null | undefined) {
                             throw "Undefined Link";
                         }
+                        
                     } catch (err) {
-                        // bot crash for known reason (site update)
+                        console.log("bot crash for known reason (site update)", err);
                         exit(1);
                     }
 
@@ -67,7 +68,7 @@ async function main() {
 
             await sleep(1000 * SECONDS);
         } catch (err) {
-            // bot crash fot unknown reason (internet crash)
+            console.log("bot crash fot unknown reason (internet crash)")
             exit(1);
         }
     }
