@@ -34,7 +34,13 @@ async function main() {
                         let lastSection = l[l.length - 1];
                         let div = lastSection.querySelector("div > div").children;
                         let el = div[div.length - 1].children;
-                        let lastCircolare = el[1].children[1].children[1].children[0];
+
+                        try {
+                            let lastCircolare = el[1].children[1].children[1].children[0];
+                        } catch(err) {
+                            console.log("non readable");
+                            return;
+                        }
 
                         link = lastCircolare.getAttribute("href");
                         desc = lastCircolare.querySelector("h2").innerHTML;
@@ -42,7 +48,7 @@ async function main() {
                         if (link === null | undefined || desc === null | undefined) {
                             throw "Undefined Link";
                         }
-                        
+
                     } catch (err) {
                         console.log("bot crash for known reason (site update)", err);
                         exit(1);
