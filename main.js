@@ -35,8 +35,9 @@ async function main() {
                         let div = lastSection.querySelector("div > div").children;
                         let el = div[div.length - 1].children;
 
+                        let lastCircolare;
                         try {
-                            let lastCircolare = el[1].children[1].children[1].children[0];
+                            lastCircolare = el[1].children[1].children[1].children[0];
                         } catch(err) {
                             console.log("non readable");
                             return;
